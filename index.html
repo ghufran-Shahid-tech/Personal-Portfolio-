@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Ghufran Shahid</title>
+<link rel="stylesheet" href="style.css">
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <nav>
+    <button data-section="about">About</button>
+    <button data-section="skills">Skills</button>
+    <button data-section="portfolio">Portfolio</button>
+    <button data-section="contact">Contact</button>
+  </nav>
+</header>
+
+<!-- ===== 1: ABOUT SECTION ===== -->
+<section id="about" class="section active">
+  <div class="about-box">
+    <img src="png.jpg" alt="Ghufran Shahid" class="profile-pic">
+    <h1 class="profile-name">Ghufran Shahid</h1>
+    <p class="about-description"><strong>Hello! I'm</strong> <span id="typing-text"></span></p>
+    <p class="about-long">
+      Hello! I'm Ghufran Shahid, a 17-year-old tech enthusiast from Karachi, Pakistan. 
+I have a deep passion for exploring the latest in technology, from Cybersecurity and Ethical Hacking to AI Assistants and Automation. 
+I constantly experiment with Prompt Engineering to optimize AI outputs, and I love creating visually appealing designs in Graphics Design. 
+Additionally, I am honing my skills in Web Development, learning HTML, CSS, and JavaScript to build modern, responsive websites. 
+I am always curious, constantly learning, and eager to apply my knowledge to create innovative projects that can make a real impact.
+    </p>
+    <a href="Cv.png" class="cv.png">Download CV</a>
+  </div>
+</section>
+
+<!-- ===== 2: SKILLS SECTION ===== -->
+<section id="skills" class="section">
+  <h2 class="title">Skills</h2>
+  <div class="grid skills-grid">
+    <div class="card">
+      <i data-lucide="shield" class="skill-icon"></i>
+      <h3>Cybersecurity</h3>
+      <p>Ethical Hacking, Kali Linux</p>
+    </div>
+    <div class="card">
+      <i data-lucide="cpu" class="skill-icon"></i>
+      <h3>AI & Automation</h3>
+      <p>AI Assistants, Agents, Automation</p>
+    </div>
+    <div class="card">
+      <i data-lucide="code" class="skill-icon"></i>
+      <h3>Prompt Engineering</h3>
+      <p>Advanced AI Prompt Techniques</p>
+    </div>
+    <div class="card">
+      <i data-lucide="image" class="skill-icon"></i>
+      <h3>Graphics Designing</h3>
+      <p>Photoshop, Illustrator</p>
+    </div>
+    <div class="card">
+      <i data-lucide="globe" class="skill-icon"></i>
+      <h3>Web Development</h3>
+      <p>HTML, CSS, JavaScript</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3: PORTFOLIO SECTION ===== -->
+<section id="portfolio" class="section">
+  <h2 class="title">Portfolio</h2>
+  <div class="grid portfolio-grid">
+    <div class="card">
+      <img src="free.png" alt="Free Fire Proxy Server" class="portfolio-img">
+      <h3>Free Fire Proxy Server APK</h3>
+      <p>Android APK project demonstrating proxy server connectivity and testing environments.</p>
+      <a href="Free_fire_Proxy_server.apk" class="btn-cv" download>Download APK</a>
+    </div>
+    <div class="card">
+      <img src="https://placehold.co/400x200" alt="AI Chatbot" class="portfolio-img">
+      <h3>AI Chatbot Integration</h3>
+      <p>Integrated AI chatbot into a web application for automated support queries.</p>
+      <a href="#" class="btn-cv">Coming Soon</a>
+    </div>
+    <div class="card">
+      <img src="https://placehold.co/400x200" alt="Network Security Audit" class="portfolio-img">
+      <h3>Network Security Audit</h3>
+      <p>Conducted network security audit, identified vulnerabilities, and recommended mitigations.</p>
+      <a href="#" class="btn-cv">Coming Soon</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4: CONTACT SECTION ===== -->
+<section id="contact" class="section">
+  <h2 class="title">Contact Me</h2>
+  <div class="grid contact-grid">
+    <div class="card contact-card">
+      <p><strong>Email:</strong> <a href="mailto:ghufranmughal258@gmail.com">ghufranmughal258@gmail.com</a></p>
+    </div>
+    <div class="card contact-card">
+      <p><strong>Phone:</strong> +92 325 70XXX79</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>&copy; 2025 Ghufran Shahid. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  lucide.replace(); // render lucide icons
+</script>
+</body>
+</html>
