@@ -2,116 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ghufran Shahid | Portfolio</title>
-
-  <!-- CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">Portfolio<span>.</span></div>
+<!-- ===== HEADER / NAV ===== -->
+<header>
+  <h1 class="logo">Ghufran<span>.</span></h1>
+  <nav>
+    <button data-section="about">About</button>
+    <button data-section="skills">Skills</button>
+    <button data-section="portfolio">Portfolio</button>
+    <button data-section="contact">Contact</button>
+  </nav>
+</header>
 
-    <nav class="navigation">
-      <button class="nav-btn active" data-section="about">About</button>
-      <button class="nav-btn" data-section="skills">Skills</button>
-      <button class="nav-btn" data-section="portfolio">Portfolio</button>
-      <button class="nav-btn" data-section="contact">Contact</button>
-    </nav>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about" class="section active">
-    <div class="about-container">
-
-      <div class="about-image">
-        <img src="png.jpg" alt="Ghufran Shahid">
-      </div>
-
-      <div class="about-content">
-        <h2>Hello, It's Me</h2>
-        <h1>Ghufran Shahid</h1>
-        <p class="role-text">I'm a <span id="typing-text"></span></p>
-
-        <p class="about-description">
-          I am a 17-year-old tech enthusiast from Karachi, Pakistan.
-          Passionate about Cybersecurity, AI Automation, Prompt Engineering,
-          Graphic Designing, and Web Development.
-        </p>
-
-        <a href="#" class="cv-button">
-          <i data-lucide="download"></i>
-          Download CV
-        </a>
-      </div>
-
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section active">
+  <div class="about-box">
+    <img src="png.jpg" alt="Ghufran">
+    <div>
+      <h2>Hello, I'm</h2>
+      <h1>Ghufran Shahid</h1>
+      <h3>I am a <span id="typing"></span></h3>
+      <p>
+        17-year-old tech enthusiast from Karachi, Pakistan.  
+        Passionate about Cybersecurity, AI Assistants, Prompt Engineering,
+        Web Development and Automation.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="section">
-    <h2 class="section-title">My Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card"><i data-lucide="shield"></i><p>Cybersecurity</p></div>
-      <div class="skill-card"><i data-lucide="brain"></i><p>AI Automation</p></div>
-      <div class="skill-card"><i data-lucide="code"></i><p>Prompt Engineering</p></div>
-      <div class="skill-card"><i data-lucide="package"></i><p>Graphic Designing</p></div>
-      <div class="skill-card"><i data-lucide="globe"></i><p>Web Development</p></div>
-    </div>
-  </section>
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="section">
+  <h2 class="title">My Skills</h2>
+  <div class="grid">
+    <div class="card">Cybersecurity (Ethical Hacking)</div>
+    <div class="card">AI Assistants & Automation</div>
+    <div class="card">Prompt Engineering</div>
+    <div class="card">Graphics Designing</div>
+    <div class="card">HTML, CSS & JavaScript</div>
+  </div>
+</section>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio" class="section">
-    <h2 class="section-title">My Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-card">Web Project</div>
-      <div class="portfolio-card">AI Assistant</div>
-      <div class="portfolio-card">Security Audit</div>
-    </div>
-  </section>
+<!-- ===== PORTFOLIO ===== -->
+<section id="portfolio" class="section">
+  <h2 class="title">My Portfolio</h2>
+  <div class="grid">
+    <div class="card">Free Fire Proxy Server APK</div>
+    <div class="card">AI Chatbot Project</div>
+    <div class="card">Security Audit Project</div>
+    <div class="card">Brand Design Project</div>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <h2 class="section-title">Contact Me</h2>
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section">
+  <h2 class="title">Contact Me</h2>
+  <div class="contact-box">
+    <p>Email: <a href="mailto:ghufranmughal258@gmail.com">ghufranmughal258@gmail.com</a></p>
+    <p>Phone: +92 325 70XXX79</p>
+  </div>
+</section>
 
-    <div class="contact-box">
-      <div class="contact-item">
-        <i data-lucide="mail"></i>
-        <a href="mailto:ghufranmughal258@gmail.com">ghufranmughal258@gmail.com</a>
-      </div>
-
-      <div class="contact-item">
-        <i data-lucide="phone"></i>
-        <span>0325-704317*</span>
-      </div>
-
-      <div class="social-links">
-        <a href="https://www.youtube.com/@ghufitech"><i data-lucide="youtube"></i></a>
-
-        <!-- TikTok SVG -->
-        <a href="https://www.tiktok.com/@veb3swithghufii">
-          <svg viewBox="0 0 24 24">
-            <path d="M21 8.5a6.5 6.5 0 0 1-5.2-2.6V15a6 6 0 1 1-5.9-6
-            5.8 5.8 0 0 1 1.4.2v3.2a2.8 2.8 0 1 0 2 2.7V2h3
-            a6.5 6.5 0 0 0 4.7 2v4.5z"/>
-          </svg>
-        </a>
-
-        <a href="https://instagram.com"><i data-lucide="instagram"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    © 2025 Ghufran Shahid. All rights reserved.
-  </footer>
-
-  <!-- JS -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
