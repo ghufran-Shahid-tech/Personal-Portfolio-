@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ghufran Shahid - Personal Portfolio</title>
+  <title>Ghufran Shahid - Portfolio</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-  <!-- Lucide Icons -->
+  <!-- Lucide -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
   <style>
@@ -23,7 +22,7 @@
     .section{display:none}
     .section.active{display:block}
     .card{border:1px solid rgba(0,224,224,.15);background:rgba(255,255,255,.03)}
-    .btn{border:1px solid rgba(0,224,224,.3);padding:.5rem 1rem;border-radius:.375rem;color:var(--accent)}
+    .btn{border:1px solid rgba(0,224,224,.3);padding:.6rem 1.2rem;border-radius:.375rem;color:var(--accent)}
     .nav-btn{font-weight:600;color:var(--muted)}
     .nav-btn.active{color:var(--accent)}
   </style>
@@ -35,7 +34,9 @@
 
 <!-- HEADER -->
 <header class="flex flex-col sm:flex-row justify-between items-center gap-4">
-  <h1 class="text-3xl font-extrabold text-cyan-400">Portfolio<span class="text-white">.</span></h1>
+  <h1 class="text-3xl font-extrabold text-cyan-400">
+    Portfolio<span class="text-white">.</span>
+  </h1>
   <nav class="flex flex-wrap gap-4 text-lg">
     <button class="nav-btn active" data-sec="about">About</button>
     <button class="nav-btn" data-sec="skills">Skills</button>
@@ -46,23 +47,39 @@
 
 <!-- ABOUT -->
 <section id="about" class="section active py-16">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+    <!-- PROFILE IMAGE -->
+    <div class="flex justify-center lg:justify-start">
+      <img 
+        src="png.jpg"
+        alt="Ghufran Shahid"
+        class="w-64 h-96 object-cover rounded-t-3xl shadow-xl border border-cyan-400/20"
+      >
+    </div>
+
+    <!-- TEXT CONTENT -->
     <div class="text-center lg:text-left">
       <h2 class="text-3xl mb-2">Hello, It's Me</h2>
       <h1 class="text-4xl font-bold text-cyan-400 mb-3">Ghufran Shahid</h1>
-      <p class="text-xl mb-4">I'm a <span id="typing" class="text-cyan-400 font-bold"></span></p>
-      <p class="text-gray-300 mb-6">
-        17-year-old tech enthusiast from Karachi exploring Cybersecurity,
-        AI Automation, Prompt Engineering, Graphics Design & Web Development.
+
+      <p class="text-xl mb-4">
+        I'm a <span id="typing" class="text-cyan-400 font-bold"></span>
       </p>
-      <a class="btn inline-flex items-center gap-2" href="#">
+
+      <p class="text-gray-300 leading-relaxed mb-6">
+        I am a 17-year-old tech enthusiast from Karachi, Pakistan.
+        Passionate about Cybersecurity, Ethical Hacking, AI Automation,
+        Prompt Engineering, Graphic Designing, and Web Development.
+        I love learning new technologies and building creative solutions.
+      </p>
+
+      <!-- CV BUTTON -->
+      <a href="#" class="btn inline-flex items-center gap-2">
         <i data-lucide="download"></i> Download CV
       </a>
     </div>
 
-    <div class="flex justify-center">
-      <img src="png.jpg" class="w-56 h-56 rounded-full object-cover shadow-lg" alt="Profile">
-    </div>
   </div>
 </section>
 
@@ -92,14 +109,25 @@
 <section id="contact" class="section py-16">
   <h2 class="text-3xl font-bold text-center mb-10">Contact Me</h2>
 
-  <div class="card max-w-md mx-auto p-6 text-center space-y-4">
-    <p>Email: <a class="text-cyan-400" href="mailto:ghufranmughal258@gmail.com">ghufranmughal258@gmail.com</a></p>
+  <div class="card max-w-md mx-auto p-6 space-y-5">
+
+    <div class="flex items-center gap-3">
+      <i data-lucide="mail" class="text-cyan-400"></i>
+      <a href="mailto:ghufranmughal258@gmail.com" class="text-cyan-400 break-all">
+        ghufranmughal258@gmail.com
+      </a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <i data-lucide="phone" class="text-cyan-400"></i>
+      <span class="text-gray-300">0325-704317*</span>
+    </div>
 
     <!-- SOCIALS -->
-    <div class="flex justify-center gap-6 text-gray-400">
+    <div class="flex justify-center gap-6 pt-4 text-gray-400">
       <a href="https://www.youtube.com/@ghufitech"><i data-lucide="youtube"></i></a>
 
-      <!-- REAL TIKTOK ICON -->
+      <!-- TikTok SVG -->
       <a href="https://www.tiktok.com/@veb3swithghufii" class="hover:text-cyan-400">
         <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
           <path d="M21 8.5a6.5 6.5 0 0 1-5.2-2.6V15a6 6 0 1 1-5.9-6
@@ -138,8 +166,8 @@ const el=document.getElementById("typing");
 (function type(){
   if(!el)return;
   el.textContent=roles[i].slice(0,j+=del?-1:1);
-  if(j==roles[i].length)del=true;
-  if(j==0){del=false;i=(i+1)%roles.length}
+  if(j===roles[i].length)del=true;
+  if(j===0){del=false;i=(i+1)%roles.length}
   setTimeout(type,del?60:120);
 })();
 </script>
