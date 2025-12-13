@@ -1,176 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ghufran Shahid - Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghufran Shahid | Portfolio</title>
 
-  <!-- Tailwind -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-  <!-- Lucide -->
+  <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-
-  <style>
-    :root{
-      --accent:#00e0e0;
-      --bg:#000;
-      --text:#fff;
-      --muted:#bfcfd1;
-    }
-    body{background:var(--bg);color:var(--text)}
-    .section{display:none}
-    .section.active{display:block}
-    .card{border:1px solid rgba(0,224,224,.15);background:rgba(255,255,255,.03)}
-    .btn{border:1px solid rgba(0,224,224,.3);padding:.6rem 1.2rem;border-radius:.375rem;color:var(--accent)}
-    .nav-btn{font-weight:600;color:var(--muted)}
-    .nav-btn.active{color:var(--accent)}
-  </style>
 </head>
+<body>
 
-<body class="font-sans min-h-screen">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">Portfolio<span>.</span></div>
 
-<div class="max-w-7xl mx-auto px-4 py-6">
+    <nav class="navigation">
+      <button class="nav-btn active" data-section="about">About</button>
+      <button class="nav-btn" data-section="skills">Skills</button>
+      <button class="nav-btn" data-section="portfolio">Portfolio</button>
+      <button class="nav-btn" data-section="contact">Contact</button>
+    </nav>
+  </header>
 
-<!-- HEADER -->
-<header class="flex flex-col sm:flex-row justify-between items-center gap-4">
-  <h1 class="text-3xl font-extrabold text-cyan-400">
-    Portfolio<span class="text-white">.</span>
-  </h1>
-  <nav class="flex flex-wrap gap-4 text-lg">
-    <button class="nav-btn active" data-sec="about">About</button>
-    <button class="nav-btn" data-sec="skills">Skills</button>
-    <button class="nav-btn" data-sec="portfolio">Portfolio</button>
-    <button class="nav-btn" data-sec="contact">Contact</button>
-  </nav>
-</header>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section active">
+    <div class="about-container">
 
-<!-- ABOUT -->
-<section id="about" class="section active py-16">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- PROFILE IMAGE -->
+      <div class="about-image">
+        <img src="png.jpg" alt="Ghufran Shahid profile picture">
+      </div>
 
-    <!-- PROFILE IMAGE -->
-    <div class="flex justify-center lg:justify-start">
-      <img 
-        src="png.jpg"
-        alt="Ghufran Shahid"
-        class="w-64 h-96 object-cover rounded-t-3xl shadow-xl border border-cyan-400/20"
-      >
+      <!-- ABOUT CONTENT -->
+      <div class="about-content">
+        <h2>Hello, It's Me</h2>
+        <h1>Ghufran Shahid</h1>
+
+        <p class="role-text">
+          I'm a <span id="typing-text"></span>
+        </p>
+
+        <p class="about-description">
+          I am a 17-year-old tech enthusiast from Karachi, Pakistan.
+          Passionate about Cybersecurity, Ethical Hacking, AI Automation,
+          Prompt Engineering, Graphic Designing, and Web Development.
+          I love learning new technologies and building creative solutions.
+        </p>
+
+        <a href="#" class="cv-button">
+          <i data-lucide="download"></i>
+          Download CV
+        </a>
+      </div>
+
     </div>
+  </section>
 
-    <!-- TEXT CONTENT -->
-    <div class="text-center lg:text-left">
-      <h2 class="text-3xl mb-2">Hello, It's Me</h2>
-      <h1 class="text-4xl font-bold text-cyan-400 mb-3">Ghufran Shahid</h1>
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="section">
+    <h2 class="section-title">My Skills</h2>
 
-      <p class="text-xl mb-4">
-        I'm a <span id="typing" class="text-cyan-400 font-bold"></span>
-      </p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i data-lucide="shield"></i>
+        <p>Cybersecurity</p>
+      </div>
 
-      <p class="text-gray-300 leading-relaxed mb-6">
-        I am a 17-year-old tech enthusiast from Karachi, Pakistan.
-        Passionate about Cybersecurity, Ethical Hacking, AI Automation,
-        Prompt Engineering, Graphic Designing, and Web Development.
-        I love learning new technologies and building creative solutions.
-      </p>
+      <div class="skill-card">
+        <i data-lucide="brain"></i>
+        <p>AI Automation</p>
+      </div>
 
-      <!-- CV BUTTON -->
-      <a href="#" class="btn inline-flex items-center gap-2">
-        <i data-lucide="download"></i> Download CV
-      </a>
+      <div class="skill-card">
+        <i data-lucide="code"></i>
+        <p>Prompt Engineering</p>
+      </div>
+
+      <div class="skill-card">
+        <i data-lucide="package"></i>
+        <p>Graphic Designing</p>
+      </div>
+
+      <div class="skill-card">
+        <i data-lucide="globe"></i>
+        <p>Web Development</p>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- PORTFOLIO SECTION -->
+  <section id="portfolio" class="section">
+    <h2 class="section-title">My Portfolio</h2>
 
-<!-- SKILLS -->
-<section id="skills" class="section py-16">
-  <h2 class="text-3xl font-bold text-center mb-10">My Skills</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="card p-6 text-center"><i data-lucide="shield"></i><p>Cybersecurity</p></div>
-    <div class="card p-6 text-center"><i data-lucide="brain"></i><p>AI Automation</p></div>
-    <div class="card p-6 text-center"><i data-lucide="code"></i><p>Prompt Engineering</p></div>
-    <div class="card p-6 text-center"><i data-lucide="package"></i><p>Graphic Design</p></div>
-    <div class="card p-6 text-center"><i data-lucide="globe"></i><p>Web Development</p></div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="portfolio" class="section py-16">
-  <h2 class="text-3xl font-bold text-center mb-10">My Portfolio</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="card p-6 text-center">Web Project</div>
-    <div class="card p-6 text-center">AI Assistant</div>
-    <div class="card p-6 text-center">Security Audit</div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section py-16">
-  <h2 class="text-3xl font-bold text-center mb-10">Contact Me</h2>
-
-  <div class="card max-w-md mx-auto p-6 space-y-5">
-
-    <div class="flex items-center gap-3">
-      <i data-lucide="mail" class="text-cyan-400"></i>
-      <a href="mailto:ghufranmughal258@gmail.com" class="text-cyan-400 break-all">
-        ghufranmughal258@gmail.com
-      </a>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">Web Project</div>
+      <div class="portfolio-card">AI Assistant</div>
+      <div class="portfolio-card">Security Audit</div>
     </div>
+  </section>
 
-    <div class="flex items-center gap-3">
-      <i data-lucide="phone" class="text-cyan-400"></i>
-      <span class="text-gray-300">0325-704317*</span>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section">
+    <h2 class="section-title">Contact Me</h2>
+
+    <div class="contact-box">
+
+      <div class="contact-item">
+        <i data-lucide="mail"></i>
+        <a href="mailto:ghufranmughal258@gmail.com">
+          ghufranmughal258@gmail.com
+        </a>
+      </div>
+
+      <div class="contact-item">
+        <i data-lucide="phone"></i>
+        <span>0325-704317*</span>
+      </div>
+
+      <div class="social-links">
+        <a href="https://www.youtube.com/@ghufitech" target="_blank">
+          <i data-lucide="youtube"></i>
+        </a>
+
+        <!-- TikTok SVG -->
+        <a href="https://www.tiktok.com/@veb3swithghufii" target="_blank">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 8.5a6.5 6.5 0 0 1-5.2-2.6V15a6 6 0 1 1-5.9-6
+            5.8 5.8 0 0 1 1.4.2v3.2a2.8 2.8 0 1 0 2 2.7V2h3
+            a6.5 6.5 0 0 0 4.7 2v4.5z"/>
+          </svg>
+        </a>
+
+        <a href="https://instagram.com" target="_blank">
+          <i data-lucide="instagram"></i>
+        </a>
+      </div>
+
     </div>
+  </section>
 
-    <!-- SOCIALS -->
-    <div class="flex justify-center gap-6 pt-4 text-gray-400">
-      <a href="https://www.youtube.com/@ghufitech"><i data-lucide="youtube"></i></a>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Ghufran Shahid. All rights reserved.</p>
+  </footer>
 
-      <!-- TikTok SVG -->
-      <a href="https://www.tiktok.com/@veb3swithghufii" class="hover:text-cyan-400">
-        <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-          <path d="M21 8.5a6.5 6.5 0 0 1-5.2-2.6V15a6 6 0 1 1-5.9-6
-          5.8 5.8 0 0 1 1.4.2v3.2a2.8 2.8 0 1 0 2 2.7V2h3
-          a6.5 6.5 0 0 0 4.7 2v4.5z"/>
-        </svg>
-      </a>
-
-      <a href="https://instagram.com"><i data-lucide="instagram"></i></a>
-    </div>
-  </div>
-</section>
-
-<footer class="text-center py-6 text-gray-500 border-t border-cyan-500/20">
-  © 2025 Ghufran Shahid
-</footer>
-
-</div>
-
-<script>
-lucide.createIcons();
-
-document.querySelectorAll(".nav-btn").forEach(btn=>{
-  btn.onclick=()=>{
-    document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-    document.getElementById(btn.dataset.sec).classList.add("active");
-    window.scrollTo({top:0,behavior:"smooth"});
-  }
-});
-
-const roles=["Student","Cybersecurity Enthusiast","AI Automation","Web Developer"];
-let i=0,j=0,del=false;
-const el=document.getElementById("typing");
-(function type(){
-  if(!el)return;
-  el.textContent=roles[i].slice(0,j+=del?-1:1);
-  if(j===roles[i].length)del=true;
-  if(j===0){del=false;i=(i+1)%roles.length}
-  setTimeout(type,del?60:120);
-})();
-</script>
+  <script>
+    lucide.createIcons();
+  </script>
 
 </body>
 </html>
