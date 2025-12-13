@@ -1,279 +1,162 @@
-// IIFE to avoid polluting global scope
-(() => {
-    'use strict';
+/* ===============================
+   CORE UTILITIES
+================================ */
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
 
-    // =================== LUCIDE ICONS ===================
-    if (typeof window !== 'undefined' && window.lucide && typeof window.lucide.createIcons === 'function') {
-        try {
-            window.lucide.createIcons();
-        } catch (e) {
-            // fail silently if lucide fails
-            // console.warn('lucide.createIcons failed', e);
-        }
+/* ===============================
+   LUCIDE INIT
+================================ */
+if (window.lucide) {
+  lucide.createIcons();
+}
+
+/* ===============================
+   SECTION NAVIGATION (VIP)
+================================ */
+const navButtons = document.querySelectorAll(".nav-btn");
+const sections = document.querySelectorAll(".section");
+
+navButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const target = btn.dataset.section;
+    if (!target) return;
+
+    // active nav
+    navButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    // switch section
+    sections.forEach(sec => sec.classList.remove("active"));
+    const activeSection = document.getElementById(target);
+    if (activeSection) activeSection.classList.add("active");
+
+    // reset scroll
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+/* ===============================
+   TYPING EFFECT (SMOOTH)
+================================ */
+const typingTarget = document.getElementById("typing-text");
+if (typingTarget) {
+  const roles = [
+    "Student",
+    "Cybersecurity Enthusiast",
+    "AI Automation",
+    "Prompt Engineer",
+    "Web Developer"
+  ];
+
+  let roleIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function typeLoop() {
+    const text = roles[roleIndex];
+
+    if (!deleting) {
+      typingTarget.textContent = text.slice(0, ++charIndex);
+      if (charIndex === text.length) {
+        setTimeout(() => (deleting = true), 1200);
+      }
+    } else {
+      typingTarget.textContent = text.slice(0, --charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+      }
     }
 
-    // =================== CURRENT YEAR ===================
-    const yearEl = document.getElementById('current-year');
-    if (yearEl) {
-        yearEl.textContent = String(new Date().getFullYear());
-    }
+    setTimeout(typeLoop, deleting ? 60 : 110);
+  }
 
-    // =================== NAVIGATION & SMOOTH SCROLL ===================
-    const navButtons = Array.from(document.querySelectorAll('.nav-button'));
-    function setActiveNav(button) {
-        navButtons.forEach(b => b.classList.remove('active'));
-        if (button) button.classList.add('active');
-    }
-    if (navButtons.length) {
-        navButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // If it's a link, let it behave like a link but still smooth scroll if target exists
-                e.preventDefault();
-                setActiveNav(btn);
+  typeLoop();
+}
 
-                const section = btn.dataset.section || (btn.getAttribute('href') || '').replace(/^#/, '');
-                const target = section ? document.getElementById(`${section}-section`) || document.getElementById(section) : null;
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Update the URL hash without jumping
-                    if (history && typeof history.replaceState === 'function' && section) {
-                        history.replaceState(null, '', `#${section}`);
-                    }
-                }
-                // For responsive nav: close menu if open
-                const navMenu = document.getElementById('nav-menu');
-                const menuToggle = document.getElementById('menu-toggle');
-                if (navMenu && !navMenu.classList.contains('hidden') && menuToggle) {
-                    navMenu.classList.add('hidden');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
+/* ===============================
+   PRESS / TOUCH FEEDBACK
+================================ */
+function pressEffect(elements) {
+  elements.forEach(el => {
+    el.addEventListener("mousedown", () => el.classList.add("is-pressed"));
+    el.addEventListener("mouseup", () => el.classList.remove("is-pressed"));
+    el.addEventListener("mouseleave", () => el.classList.remove("is-pressed"));
+    el.addEventListener("touchstart", () => el.classList.add("is-pressed"), { passive: true });
+    el.addEventListener("touchend", () => el.classList.remove("is-pressed"));
+  });
+}
 
-        // Set initial active based on hash or first button
-        const initialHash = (location.hash || '').replace('#', '');
-        const initialBtn = navButtons.find(b => (b.dataset.section === initialHash) || (b.getAttribute('href') || '').endsWith(`#${initialHash}`)) || navButtons[0];
-        setActiveNav(initialBtn);
-    }
+pressEffect(document.querySelectorAll(
+  ".nav-btn, .cv-button, .skill-card, .portfolio-card, .social-links a"
+));
 
-    // =================== INTERSECTION OBSERVER HELPERS ===================
-    const supportsIntersectionObserver = 'IntersectionObserver' in window;
+/* ===============================
+   CARD TILT (DESKTOP ONLY)
+================================ */
+if (!prefersReducedMotion && window.matchMedia("(hover:hover)").matches) {
+  document.querySelectorAll(".skill-card, .portfolio-card").forEach(card => {
+    card.addEventListener("mousemove", e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    // =================== FADE-UP ANIMATIONS ===================
-    const animatedTexts = Array.from(document.querySelectorAll('.animated-text'));
-    if (animatedTexts.length) {
-        if (supportsIntersectionObserver) {
-            const fadeObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-animated');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            animatedTexts.forEach(el => fadeObserver.observe(el));
-        } else {
-            // fallback: reveal all
-            animatedTexts.forEach(el => el.classList.add('is-animated'));
-        }
-    }
+      const rotateX = ((y / rect.height) - 0.5) * -6;
+      const rotateY = ((x / rect.width) - 0.5) * 6;
 
-    // =================== PORTFOLIO FADE-BOUNCE ===================
-    const portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
-    if (portfolioItems.length) {
-        portfolioItems.forEach((item, index) => {
-            // Use inline style for stagger; CSS should use transition-delay if using class
-            item.style.transitionDelay = `${index * 0.1}s`;
-        });
-
-        if (supportsIntersectionObserver) {
-            const portfolioObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-bounce', 'show');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            portfolioItems.forEach(item => portfolioObserver.observe(item));
-        } else {
-            portfolioItems.forEach(item => item.classList.add('fade-bounce', 'show'));
-        }
-    }
-
-    // =================== TYPING ANIMATION ===================
-    (function typingAnimation() {
-        const typingText = document.getElementById('typing-text');
-        if (!typingText) return;
-
-        const words = ["Cybersecurity", "AI Automation", "Prompt Engineering", "Web Development", "Graphics Designing"];
-        if (!words.length) return;
-
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 120;
-        const deletingSpeed = 80;
-        const pauseAfterWord = 1000;
-
-        function tick() {
-            const current = words[wordIndex];
-            if (!isDeleting) {
-                charIndex++;
-                typingText.textContent = current.substring(0, charIndex);
-                if (charIndex === current.length) {
-                    isDeleting = true;
-                    setTimeout(tick, pauseAfterWord);
-                } else {
-                    setTimeout(tick, typingSpeed);
-                }
-            } else {
-                charIndex--;
-                typingText.textContent = current.substring(0, charIndex);
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                    setTimeout(tick, 500);
-                } else {
-                    setTimeout(tick, deletingSpeed);
-                }
-            }
-        }
-        tick();
-    })();
-
-    // =================== CV MODAL ===================
-    (function cvModalInit() {
-        const cvCard = document.getElementById('cvCard');
-        const cvModal = document.getElementById('cvModal');
-        const cvClose = document.getElementById('cvModalClose');
-
-        if (!cvCard || !cvModal || !cvClose) return;
-
-        function openModal() {
-            cvModal.style.display = 'flex';
-            cvModal.setAttribute('aria-hidden', 'false');
-            cvClose.focus();
-            document.body.style.overflow = 'hidden'; // prevent background scroll
-        }
-        function closeModal() {
-            cvModal.style.display = 'none';
-            cvModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-            cvCard.focus();
-        }
-
-        cvCard.addEventListener('click', openModal);
-        cvCard.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openModal();
-            }
-        });
-
-        cvClose.addEventListener('click', closeModal);
-        cvClose.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                closeModal();
-            }
-        });
-
-        cvModal.addEventListener('click', e => {
-            if (e.target === cvModal) closeModal();
-        });
-
-        // Close on Escape
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && cvModal.style.display === 'flex') {
-                closeModal();
-            }
-        });
-    })();
-
-    // =================== BUTTON PRESS EFFECTS ===================
-    (function pressEffects() {
-        const pressButtons = Array.from(document.querySelectorAll('.nav-button, .download-cv-button, .social-icon-link, .portfolio-button'));
-        if (!pressButtons.length) return;
-
-        const add = (el) => el.classList.add('is-pressed');
-        const remove = (el) => el.classList.remove('is-pressed');
-
-        pressButtons.forEach(btn => {
-            // pointer events cover mouse/touch/pen
-            btn.addEventListener('pointerdown', () => add(btn));
-            btn.addEventListener('pointerup', () => remove(btn));
-            btn.addEventListener('pointercancel', () => remove(btn));
-            btn.addEventListener('pointerleave', () => remove(btn));
-            // keyboard feedback
-            btn.addEventListener('keydown', (e) => {
-                if (e.key === ' ' || e.key === 'Enter') add(btn);
-            });
-            btn.addEventListener('keyup', (e) => {
-                if (e.key === ' ' || e.key === 'Enter') remove(btn);
-            });
-        });
-    })();
-
-    // =================== ADDITIONAL SCROLL ANIMATIONS (Parallax) ===================
-    (function parallax() {
-        const profileImg = document.querySelector('.glowing-image-container');
-        if (!profileImg) return;
-        let ticking = false;
-
-        function onScroll() {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrollY = window.scrollY || window.pageYOffset;
-                    profileImg.style.transform = `translateY(${scrollY * 0.08}px)`;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-
-        // passive listener for better performance
-        window.addEventListener('scroll', onScroll, { passive: true });
-        // init position
-        onScroll();
-    })();
-
-    // =================== RESPONSIVE MENU ===================
-    (function responsiveMenu() {
-        const menuToggle = document.getElementById('menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        if (!menuToggle || !navMenu) return;
-
-        menuToggle.addEventListener('click', () => {
-            const isHidden = navMenu.classList.toggle('hidden');
-            // Update aria-expanded
-            menuToggle.setAttribute('aria-expanded', String(!isHidden));
-        });
-
-        // Close menu on nav link click
-        navMenu.addEventListener('click', (e) => {
-            const target = e.target;
-            if (target && target.matches('a')) {
-                navMenu.classList.add('hidden');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    })();
-
-    // =================== REVEAL EFFECTS ON LOAD ===================
-    window.addEventListener('load', () => {
-        const els = Array.from(document.querySelectorAll('.fade-bounce'));
-        els.forEach((el, index) => {
-            setTimeout(() => el.classList.add('show'), index * 150);
-        });
+      card.style.transform = `
+        perspective(600px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-6px)
+      `;
     });
 
-    // =================== Graceful Fallbacks ===================
-    // If IntersectionObserver isn't available, ensure elements still show
-    if (!supportsIntersectionObserver) {
-        document.querySelectorAll('.animated-text, .portfolio-item, .fade-bounce').forEach(el => {
-            el.classList.add('is-animated', 'fade-bounce', 'show');
-        });
-    }
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+    });
+  });
+}
 
-})();
+/* ===============================
+   SECTION ENTRANCE STAGGER
+================================ */
+function staggerReveal(section) {
+  if (prefersReducedMotion) return;
+
+  const items = section.querySelectorAll(
+    ".skill-card, .portfolio-card, .contact-item"
+  );
+
+  items.forEach((item, i) => {
+    item.style.opacity = "0";
+    item.style.transform = "translateY(12px)";
+    setTimeout(() => {
+      item.style.transition = "opacity .4s ease, transform .4s ease";
+      item.style.opacity = "1";
+      item.style.transform = "translateY(0)";
+    }, i * 90);
+  });
+}
+
+// observe section activation
+sections.forEach(section => {
+  const observer = new MutationObserver(() => {
+    if (section.classList.contains("active")) {
+      staggerReveal(section);
+    }
+  });
+  observer.observe(section, { attributes: true });
+});
+
+/* ===============================
+   KEYBOARD ACCESSIBILITY
+================================ */
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    const focused = document.activeElement;
+    if (focused && focused.click) focused.click();
+  }
+});
