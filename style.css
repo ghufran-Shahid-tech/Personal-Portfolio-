@@ -2,7 +2,7 @@
    These variables make it easy to change the theme colors globally. */
 :root {
     --main-bg: #3AA5A9; /* Very dark grey/near black for main background */
-    --card-bg: #2D2D2D; /* Slightly lighter dark grey for card backgrounds */
+    --card-bg: #3AA5A9; /* Slightly lighter dark grey for card backgrounds */
     --accent-cyan: #00E0E0; /* Bright cyan/teal accent color */
     --text-primary: #FFFFFF; /* Pure white for main headings and important text */
     --text-secondary: #E0E0E0; /* Light grey for paragraphs and general text */
