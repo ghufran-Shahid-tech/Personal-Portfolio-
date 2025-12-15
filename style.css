@@ -21,7 +21,7 @@ body{
 /* ================= NAVBAR ================= */
 header{
   width:100%;
-  background:rgba(11,11,11,0.7); /* Semi-transparent for blur */
+  background:rgba(11,11,11,0.7); /* ghufi-transparent for blur */
   backdrop-filter: blur(10px); /* Adds blur effect */
   border-radius:30px; /* Rounded sides */
   border:1px solid #222;
@@ -401,4 +401,4 @@ a.cv\.png:active {
     margin:0 5px;
     font-size:16px;
   }
-  }
+}
