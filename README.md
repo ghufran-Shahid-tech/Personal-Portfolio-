@@ -1,29 +1,36 @@
 # 💼 Ghufran Shahid – Personal Portfolio Website
 
-This is my personal portfolio website built to showcase my skills, projects, and contact information. It's designed with a clean and responsive layout to serve as my professional digital presence.
+This is my personal portfolio website, designed to showcase my skills, projects, and professional contact information. It features a clean, modern, and fully responsive layout to serve as my digital presence.  
 
 ## 🌐 Live Site
 
-🔗 [Visit Portfolio Website](https://ghufran-shahid-tech.github.io/Personal-Portfolio-/)
+🔗 [Visit My Portfolio](https://ghufran-shahid-tech.github.io/Personal-Portfolio-/)
 
 ## 🛠️ Technologies Used
 
 - HTML5  
 - CSS3  
-- JavaScript (vanilla)
+- JavaScript (Vanilla)
 
-## 📁 Features
+## 📁 Key Features
 
-- 👨‍💼 About Me section  
-- 🧑‍💻 Projects gallery  
-- 📩 Contact form with links to social profiles  
-- 🌐 Fully responsive design  
-- 🔗 Navigation with smooth scrolling
+- 👨‍💼 **About Me** section highlighting skills and experience  
+- 🧑‍💻 **Projects Gallery** with interactive previews  
+- 📩 **Contact Form** with links to social profiles  
+- 🌐 **Fully Responsive Design** for all devices  
+- 🔗 **Smooth Navigation** with scroll effects
 
 ## 🚀 Getting Started
 
-If you want to use this code locally or host your own portfolio:
+To run this project locally or host your own portfolio:
 
-1. Clone the repository:
+1. Clone the repository:  
    ```bash
    git clone https://github.com/ghufran-shahid-tech/Personal-Portfolio-.git
+📌 Contribution
+
+Feel free to fork the repository, suggest improvements, or contribute to make this portfolio even better.
+
+📞 Contact
+
+Connect with me via email or social profiles listed on the website.
