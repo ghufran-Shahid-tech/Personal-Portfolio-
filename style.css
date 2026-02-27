@@ -955,6 +955,18 @@ body {
   height: 180px;
   object-fit: cover;
   transition: all var(--transition-slow);
+   filter: blur(8px);
+  transition: filter 0.3s ease;
+}
+
+}
+.portfolio-img.blurred {
+  filter: blur(8px);
+  transition: filter 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-img.blurred {
+  filter: blur(0);
 }
 
 .portfolio-card:hover .portfolio-img {
@@ -1016,15 +1028,6 @@ body {
   align-self: flex-start;
 }
 
-}
-.portfolio-img.blurred {
-  filter: blur(8px);
-  transition: filter 0.3s ease;
-}
-
-.portfolio-card:hover .portfolio-img.blurred {
-  filter: blur(0);
-}
 
 /* ===== CONTACT SECTION - RESPONSIVE ===== */
 .contact-grid {
