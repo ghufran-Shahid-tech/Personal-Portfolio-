@@ -1577,3 +1577,12 @@ footer p {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-color);
 }
+.portfolio-img.blurred {
+  filter: blur(8px);
+  transition: filter 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-img.blurred {
+  filter: blur(0);
+}
+
