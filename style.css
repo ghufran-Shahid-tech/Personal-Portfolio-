@@ -1016,6 +1016,16 @@ body {
   align-self: flex-start;
 }
 
+}
+.portfolio-img.blurred {
+  filter: blur(8px);
+  transition: filter 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-img.blurred {
+  filter: blur(0);
+}
+
 /* ===== CONTACT SECTION - RESPONSIVE ===== */
 .contact-grid {
   display: grid;
