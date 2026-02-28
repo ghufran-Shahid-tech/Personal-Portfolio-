@@ -677,7 +677,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // 3D TILT EFFECT (Hero Image)
 // ============================================
 function init3DTilt() {
-  const container = document.getElementById('heroImageContainer');
+  const container = document.getElementById('profile-image-container');
   const image = document.getElementById('heroImage');
   
   if (!container || !image) return;
