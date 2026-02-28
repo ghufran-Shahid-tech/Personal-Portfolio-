@@ -678,7 +678,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // ============================================
 function init3DTilt() {
   const container = document.getElementById('profile-image-container');
-  const image = document.getElementById('heroImage');
+  const image = document.getElementById('profile-wrapper');
   
   if (!container || !image) return;
   
