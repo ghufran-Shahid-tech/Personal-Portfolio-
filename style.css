@@ -18,7 +18,7 @@
   --border-hover: #333333;
   --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 40px var(--accent-glow);
+  --shadow-glow: 0 0 30px var(--accent-glow);
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
