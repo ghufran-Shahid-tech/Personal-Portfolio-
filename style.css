@@ -959,16 +959,6 @@ body {
   transition: filter 0.3s ease;
 }
 
-}
-.portfolio-img.blurred {
-  filter: blur(8px);
-  transition: filter 0.3s ease;
-}
-
-.portfolio-card:hover .portfolio-img.blurred {
-  filter: blur(0);
-}
-
 .portfolio-card:hover .portfolio-img {
   transform: scale(1.1);
 }
@@ -1589,13 +1579,5 @@ footer p {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-color);
-}
-.portfolio-img.blurred {
-  filter: blur(8px);
-  transition: filter 0.3s ease;
-}
 
-.portfolio-card:hover .portfolio-img.blurred {
-  filter: blur(0);
-}
 
