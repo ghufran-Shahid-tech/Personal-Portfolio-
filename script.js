@@ -671,4 +671,55 @@ if (document.readyState === 'loading') {
 // ============================================
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { CONFIG, init };
+  
 }
+// ============================================
+// 3D TILT EFFECT (Hero Image)
+// ============================================
+function init3DTilt() {
+  const container = document.getElementById('heroImageContainer');
+  const image = document.getElementById('heroImage');
+  
+  if (!container || !image) return;
+  
+  // Check if touch device
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+  if (isTouchDevice) return;
+  
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  
+  document.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 10;
+    const centerY = rect.top + rect.height / 10;
+    
+    targetX = (e.clientX - centerX) / 15;
+    targetY = (e.clientY - centerY) / 15;
+    
+    // Clamp values
+    targetX = Math.max(-15, Math.min(15, targetX));
+    targetY = Math.max(-15, Math.min(15, targetY));
+  });
+  
+  function animate() {
+    // Smooth interpolation
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
+    
+    image.style.transform = `rotateY(${currentX}deg) rotateX(${-currentY}deg)`;
+    
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
+  
+  // Reset on mouse leave
+  document.addEventListener('mouseleave', () => {
+    targetX = 0;
+    targetY = 0;
+  });
+}
+
