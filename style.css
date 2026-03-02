@@ -365,7 +365,7 @@ body {
 
 /* ===== ENHANCED 3D PROFILE IMAGE WITH MOUSE/FINGER MOVEMENT ===== */
 .profile-image-wrapper {
-  perspective: var(--perspective);
+  perspective: var(--perspective, 1000px);
   margin-bottom: 40px;
   transform-style: preserve-3d;
   cursor: grab;
@@ -394,25 +394,28 @@ body {
 }
 
 .profile-pic {
-  width: 100%;
+  width: 150%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 3;
   border: 2px solid rgba(129, 155, 254, 0.4);
   box-shadow: 
     0 0 0 1px rgba(129, 155, 254, 0.2),
     0 20px 50px rgba(0, 0, 0, 0.5),
     0 0 60px rgba(129, 155, 254, 0.2);
-  transition: all var(--transition-normal);
+  transition: all var(--transition-normal, 0.3s);
 }
 
 /* Multiple glow layers for 3D depth */
 .profile-glow {
   position: absolute;
   inset: -15px;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background: linear-gradient(135deg, var(--gradient-start, #7b2cff), var(--gradient-end, #4a8dff));
   border-radius: 28px;
   filter: blur(30px);
   opacity: 0.35;
@@ -461,35 +464,50 @@ body {
     transform: scale(1.15);
   }
 }
-
 /* Animated border ring */
 .profile-ring {
   position: absolute;
-  inset: -8px;
-  border-radius: 26px;
-  padding: 3px;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end), var(--accent-color));
+  top: 50%;
+  left: 50%;
+  width: 160%;
+  height: 105%;
+  transform: translate(-50%, -50%);
+  border-radius: 23px;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start, #7b2cff),
+    var(--gradient-end, #4a8dff),
+    var(--accent-color, #ff00ff)
+  );
   background-size: 200% 200%;
+
+  /* Mask for border-only effect */
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+
   z-index: 4;
-  animation: border-rotate 3s linear infinite;
   opacity: 0.8;
+  animation: border-rotate 3s linear infinite;
+}
+
+/* Rotation animation */
+@keyframes border-rotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 @keyframes border-rotate {
   0% {
     background-position: 0% 50%;
   }
-  50% {
-    background-position: 100% 50%;
-  }
   100% {
-    background-position: 0% 50%;
+    background-position: 200% 50%;
   }
 }
+
 
 /* Inner shine effect */
 .profile-shine {
