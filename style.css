@@ -363,7 +363,7 @@ body {
   padding: 20px;
 }
 
-/* ===== ENHANCED 3D PROFILE IMAGE WITH MOUSE/FINGER MOVEMENT ===== */
+/* ===== ENHANCED 3D HORIZONTAL PROFILE IMAGE WITH MOUSE/FINGER MOVEMENT ===== */
 .profile-image-wrapper {
   perspective: var(--perspective);
   margin-bottom: 40px;
@@ -379,8 +379,8 @@ body {
 
 .profile-image-container {
   position: relative;
-  width: 220px;
-  height: 280px;
+  width: 220px;          /* horizontal width */
+  height: 160px;         /* horizontal height */
   transform-style: preserve-3d;
   transition: transform 0.1s ease-out;
   animation: profile-float 4s ease-in-out infinite;
@@ -390,24 +390,30 @@ body {
 .profile-3d-layer {
   position: absolute;
   inset: 0;
+  width: 220px;
+  height: 160px;
   transform-style: preserve-3d;
+  border-radius: 25px;  /* matches profile-pic */
 }
 
+/* Profile picture */
 .profile-pic {
-  width: 200px;         /* adjust width as needed */
-  height: auto;         /* keeps horizontal aspect ratio */
-  border-radius: 20px;  /* rounded corners, increase for more roundness */
-  border: 3px solid #333; /* frame color and thickness */
-  display: block;       /* ensures proper spacing */
-  object-fit: cover;    /* keeps image properly inside the frame */
+  width: 220px;           /* horizontal width */
+  height: 160px;          /* horizontal height */
+  border-radius: 25px;    /* rounded corners */
+  border: 3px solid #333; /* frame color */
+  display: block;
+  object-fit: cover;      /* fills frame without stretching */
 }
 
-/* Multiple glow layers for 3D depth */
+/* Glow layers for 3D depth */
 .profile-glow {
   position: absolute;
   inset: -15px;
+  width: 250px;
+  height: 190px;
   background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  border-radius: 28px;
+  border-radius: 30px;
   filter: blur(30px);
   opacity: 0.35;
   z-index: 1;
@@ -417,7 +423,9 @@ body {
 .profile-glow-outer {
   position: absolute;
   inset: -30px;
-  background: linear-gradient(135deg, rgba(123, 44, 255, 0.3), rgba(74, 141, 255, 0.2));
+  width: 280px;
+  height: 220px;
+  background: linear-gradient(135deg, rgba(123,44,255,0.3), rgba(74,141,255,0.2));
   border-radius: 40px;
   filter: blur(50px);
   opacity: 0.25;
@@ -426,41 +434,27 @@ body {
 }
 
 @keyframes profile-float {
-  0%, 100% {
-    transform: translateY(0) rotateX(0deg);
-  }
-  50% {
-    transform: translateY(-15px) rotateX(2deg);
-  }
+  0%, 100% { transform: translateY(0) rotateX(0deg); }
+  50% { transform: translateY(-10px) rotateX(2deg); } /* smaller float for horizontal */
 }
 
 @keyframes glow-pulse {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.55;
-    transform: scale(1.08);
-  }
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.08); }
 }
 
 @keyframes glow-pulse-outer {
-  0%, 100% {
-    opacity: 0.25;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(1.15);
-  }
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
 }
 
 /* Animated border ring */
 .profile-ring {
   position: absolute;
   inset: -8px;
-  border-radius: 26px;
+  width: 236px;
+  height: 176px;
+  border-radius: 28px;
   padding: 3px;
   background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end), var(--accent-color));
   background-size: 200% 200%;
@@ -474,28 +468,24 @@ body {
 }
 
 @keyframes border-rotate {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Inner shine effect */
 .profile-shine {
   position: absolute;
   inset: 0;
-  border-radius: 20px;
+  width: 220px;
+  height: 160px;
+  border-radius: 25px;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255,255,255,0.2) 0%,
     transparent 40%,
     transparent 60%,
-    rgba(255, 255, 255, 0.1) 100%
+    rgba(255,255,255,0.1) 100%
   );
   z-index: 5;
   pointer-events: none;
@@ -504,10 +494,10 @@ body {
 
 @keyframes shine-move {
   0%, 100% {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.1) 100%);
   }
   50% {
-    background: linear-gradient(225deg, rgba(255, 255, 255, 0.2) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.1) 100%);
+    background: linear-gradient(225deg, rgba(255,255,255,0.2) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.1) 100%);
   }
 }
 
@@ -515,6 +505,8 @@ body {
 .profile-touch-ring {
   position: absolute;
   inset: -20px;
+  width: 260px;
+  height: 200px;
   border-radius: 30px;
   border: 2px solid transparent;
   z-index: 6;
@@ -540,10 +532,9 @@ body {
 }
 
 @keyframes content-fade-in {
-  to {
-    opacity: 1;
-  }
+  to { opacity: 1; }
 }
+
 
 .profile-name {
   font-size: 2.8rem;
