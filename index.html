@@ -4,15 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | Ghufran Shahid</title>
-
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-180.png">
-  <link rel="shortcut icon" href="images/favicon-32.png">
+<!-- Favicon Links -->
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-180.png">
+<link rel="shortcut icon" href="images/favicon-48.png">
  <link rel="stylesheet" href="style.css">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
   <!-- ===== BACKGROUND ANIMATION LAYERS ===== -->
@@ -52,52 +58,72 @@
     </nav>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main class="main-content">
-    <!-- ===== 1: ABOUT SECTION ===== -->
-    <section id="about" class="section active">
-      <div class="section-container">
-        <div class="about-box">
-          <!-- ENHANCED 3D PROFILE IMAGE WITH MOUSE/TOUCH MOVEMENT -->
-          <div class="profile-image-wrapper" id="profile-wrapper">
-            <div class="profile-image-container" id="profile-3d">
-              <!-- Animated border ring -->
-              <div class="profile-ring"></div>
-              <!-- Main image -->
-              <img src="images/profile.png" alt="Ghufran Shahid" class="profile-pic">
-              <!-- Touch feedback ring -->
-              <div class="profile-touch-ring"></div>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content">
+
+  <!-- ===== 1: ABOUT SECTION ===== -->
+  <section id="about" class="section active">
+    <div class="section-container">
+      <div class="about-box">
+
+        <!-- ENHANCED 3D PROFILE IMAGE WITH MOUSE/TOUCH MOVEMENT -->
+        <div class="profile-image-wrapper" id="profile-wrapper">
+          <div class="profile-image-container" id="profile-3d">
+            
+            <!-- Animated border ring -->
+            <div class="profile-ring"></div>
+
+            <!-- Main image -->
+            <img src="images/profile.png" alt="Ghufran Shahid" class="profile-pic">
+
+            <!-- Touch feedback ring -->
+            <div class="profile-touch-ring"></div>
+
+          </div>
+        </div>
+
+        <div class="about-content">
+          <h1>
+            <span class="name-char"></span><span class="name-char"></span><span class="name-char"></span>
+            <span class="name-char"></span><span class="name-char"></span><span class="name-char"></span>
+            <span class="name-char"></span>
+            <span class="name-space"></span>
+            <span class="name-char"></span><span class="name-char"></span><span class="name-char"></span>
+            <span class="name-char"></span><span class="name-char"></span><span class="name-char"></span>
+          </h1>
+
+          <p class="about-description">
+            <strong>Hello! I'm</strong> 
+            <span id="typing-text"></span>
+            <span class="typing-cursor">|</span>
+          </p>
+
+          <p class="about-long">Hello! I’m Ghufran Shahid, a 17-year-old technology enthusiast based in Karachi, Pakistan. I am deeply passionate about exploring and understanding emerging technologies, particularly in the fields of Cybersecurity, Ethical Hacking, Artificial Intelligence, and Automation. I am driven by curiosity and a strong desire to stay ahead in the rapidly evolving tech landscape. I actively experiment with Prompt Engineering to enhance and optimize AI-generated outputs, focusing on precision, creativity, and efficiency. Alongside this, I have a keen interest in Graphic Design, where I enjoy crafting visually compelling and modern designs that combine aesthetics with functionality. Currently, I am strengthening my expertise in Web Development, working with HTML, CSS, and JavaScript to build clean, responsive, and user-focused websites. I am committed to continuous learning, disciplined skill development, and applying my knowledge through practical, innovative projects. My goal is not just to learn technology — but to use it strategically to create impactful solutions and meaningful digital experiences.</p>
+
+          <a href="#" class="btn-cv" id="cv-btn" data-ripple>
+            <span class="btn-text">Download CV</span>
+            <span class="btn-shimmer"></span>
+          </a>
+               
+          <!-- SCROLL INDICATOR - Full Height & Responsive -->
+          <div class="scroll-indicator">
+            <div class="mouse-container">
+              <div class="mouse">
+                <div class="wheel"></div>
+              </div>
+              <div class="arrows">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
+            <span class="scroll-text">Scroll Down</span>
           </div>
 
-          <div class="about-content">
-            <h1>
-              <span class="name-char"></span><span class="name-char"></span><span class="name-char"></span>
-              <span class="name-char"></span><span class="name-char"></span><span class="name-char"></span>
-              <span class="name-char"></span>
-              <span class="name-space"></span>
-              <span class="name-char"></span><span class="name-char"></span><span class="name-char"></span>
-              <span class="name-char"></span><span class="name-char"></span><span class="name-char"></span>
-            </h1>
-            <p class="about-description">
-              <strong>Hello! I'm</strong> <span id="typing-text"></span><span class="typing-cursor">|</span>
-            </p>
-            <p class="about-long">
-Hello! I’m Ghufran Shahid, a 17-year-old technology enthusiast based in Karachi, Pakistan. I am deeply passionate about exploring and understanding emerging technologies, particularly in the fields of Cybersecurity, Ethical Hacking, Artificial Intelligence, and Automation. I am driven by curiosity and a strong desire to stay ahead in the rapidly evolving tech landscape.
-
-I actively experiment with Prompt Engineering to enhance and optimize AI-generated outputs, focusing on precision, creativity, and efficiency. Alongside this, I have a keen interest in Graphic Design, where I enjoy crafting visually compelling and modern designs that combine aesthetics with functionality.
-
-Currently, I am strengthening my expertise in Web Development, working with HTML, CSS, and JavaScript to build clean, responsive, and user-focused websites. I am committed to continuous learning, disciplined skill development, and applying my knowledge through practical, innovative projects.
-
-My goal is not just to learn technology — but to use it strategically to create impactful solutions and meaningful digital experiences.
-            </p>
-            <a href="#" class="btn-cv" id="cv-btn" data-ripple>
-              <span class="btn-text">Download CV</span>
-              <span class="btn-shimmer"></span>
-            </a>
-             </div>
-            </div>
-       </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
            <!-- ===== STATS SECTION ===== -->
 <section class="stats-section">
@@ -286,6 +312,36 @@ A sleek, responsive restaurant website showcasing a modern fast food menu. Featu
     <h3>G-Tech Notes</h3>
     <p>G-Tech Notes is a modern, browser-based note-taking web application designed to deliver a fast, distraction-free writing and organization experience. It allows users to create, edit, organize, and manage notes in a clean and intuitive interface. Core sections include Notes, Reminders, Archive, and Trash for structured organization.</p>
     <a href="https://ghufran-shahid-tech.github.io/G-Tech-Notes/" 
+       target="_blank" 
+       class="btn-portfolio" 
+       data-ripple>
+      <span class="btn-text">View</span>
+      <span class="btn-shimmer"></span>
+    </a>
+  </div>
+</div>
+
+<!-- Farooq Penpoint Card -->
+<div class="portfolio-card" data-tilt>
+  <div class="card-border"></div>
+  <div class="card-content">
+    <div class="portfolio-image-wrapper">
+      <a href="https://ghufran-shahid-tech.github.io/Farooq-penpoint-/" target="_blank">
+        <img src="images/farooq.png" 
+             alt="Farooq Penpoint Website" 
+             class="portfolio-img blurred">
+      </a>
+      <div class="portfolio-overlay">
+        <div class="overlay-content">
+          <i data-lucide="external-link"></i>
+        </div>
+      </div>
+    </div>
+    <h3>Farooq Penpoint</h3>
+    <p>Farooq PenPoint is a dynamic and customer-focused service platform developed to provide a comprehensive range of creative and practical solutions — spanning retail, customization, and event services. The project was designed with the goal of creating a modern digital presence that reflects the brand’s versatility while ensuring a smooth and engaging user experience.
+
+The website functions as a centralized online hub where visitors can conveniently explore available services, understand offerings in detail, and connect for bookings or inquiries. From books and stationery to personalized gifts and event management, the platform highlights multiple service categories in a structured and visually appealing manner.</p>
+    <a href="https://ghufran-shahid-tech.github.io/Farooq-penpoint-/" 
        target="_blank" 
        class="btn-portfolio" 
        data-ripple>
