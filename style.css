@@ -8,7 +8,6 @@
   --bg-secondary: #0d0d0d;
   --bg-card: #111111;
   --accent-color: #819bfe;
-  --accent-glow: rgba(129, 155, 254, 0.4);
   --accent-glow-strong: rgba(129, 155, 254, 0.6);
   --gradient-start: #7b2cff;
   --gradient-end: #4a8dff;
@@ -705,8 +704,6 @@ body {
   border: none;
   cursor: pointer;
   background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  box-shadow: 0 8px 25px rgba(123, 44, 255, 0.35),
-              0 0 20px rgba(123, 44, 255, 0.2);
   overflow: hidden;
   transition: all var(--transition-normal);
   opacity: 0;
@@ -721,14 +718,6 @@ body {
   }
 }
 
-@keyframes button-glow {
-  0%, 100% {
-    box-shadow: 0 8px 25px rgba(123, 44, 255, 0.35), 0 0 20px rgba(123, 44, 255, 0.2);
-  }
-  50% {
-    box-shadow: 0 8px 25px rgba(123, 44, 255, 0.5), 0 0 40px rgba(123, 44, 255, 0.4);
-  }
-}
 
 .btn-text {
   position: relative;
@@ -754,8 +743,6 @@ body {
 .btn-cv:hover,
 .btn-portfolio:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 35px rgba(123, 44, 255, 0.5),
-              0 0 30px rgba(123, 44, 255, 0.3);
 }
 
 .btn-cv:hover .btn-shimmer,
@@ -816,7 +803,7 @@ body {
 
 /* ===== STATS SECTION ===== */
 .stats-section {
-  background-color: #0b0b0b;
+  background-color: #050508;
   color: #fff;
   padding: 40px 20px; /* Reduced height */
   overflow: hidden;
@@ -922,7 +909,6 @@ body {
   height: 100%;
   background: linear-gradient(to bottom, #7b2cff, #4a8dff);
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(123, 44, 255, 0.6);
 }
 
 /* Timeline Item */
@@ -944,7 +930,6 @@ body {
   height: 16px;
   background: linear-gradient(135deg, #7b2cff, #4a8dff);
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(123, 44, 255, 0.8);
 }
 
 /* Year */
