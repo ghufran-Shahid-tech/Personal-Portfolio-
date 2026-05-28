@@ -875,11 +875,6 @@ body {
 .stat-item:hover {
   transform: translateY(-8px);
   border-color: rgba(129, 155, 254, 0.45);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-}
-
-.stat-item:hover::before {
-  opacity: 1;
 }
 
 .stat-item h3 {
