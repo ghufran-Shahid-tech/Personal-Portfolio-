@@ -1219,6 +1219,18 @@ body {
   color:#000;
 }
 
+/* GRAPHIC DESIGN STYLE */
+
+.portfolio-card.graphic .portfolio-img{
+  height: 420px;
+  object-fit: cover;
+}
+
+.portfolio-card.graphic{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(129,155,254,0.15);
+}
+
 /* ===== PORTFOLIO CARDS ===== */
 .portfolio-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
