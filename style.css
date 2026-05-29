@@ -1183,6 +1183,44 @@ body {
   line-height: 1.5;
 }
 
+/* ===== PORTFOLIO FILTERS ===== */
+
+.portfolio-filters{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-bottom:40px;
+}
+
+.filter-btn{
+  padding:12px 22px;
+  border:none;
+  outline:none;
+  background:rgba(255,255,255,0.05);
+  color:#fff;
+  border-radius:14px;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:600;
+  transition:0.35s ease;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+}
+
+.filter-btn:hover{
+  transform:translateY(-3px);
+  background:rgba(129,155,254,0.15);
+  border-color:#819bfe;
+}
+
+.filter-btn.active{
+  background:#819bfe;
+  color:#000;
+  box-shadow:0 0 20px rgba(129,155,254,0.45);
+}
+
 /* ===== PORTFOLIO CARDS ===== */
 .portfolio-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
