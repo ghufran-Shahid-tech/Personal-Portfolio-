@@ -505,5 +505,45 @@ Kali Linux is based on the Debian Linux distribution and is widely used by secur
   lucide.createIcons();
 </script>
 <script src="script.js"></script>
+  <script>
+
+/* ===== PORTFOLIO FILTER ===== */
+
+const filterBtns = document.querySelectorAll(".filter-btn");
+const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+filterBtns.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    document
+      .querySelector(".filter-btn.active")
+      .classList.remove("active");
+
+    btn.classList.add("active");
+
+    const filter = btn.getAttribute("data-filter");
+
+    portfolioCards.forEach(card => {
+
+      if(filter === "all"){
+        card.style.display = "block";
+      }
+
+      else if(card.classList.contains(filter)){
+        card.style.display = "block";
+      }
+
+      else{
+        card.style.display = "none";
+      }
+
+    });
+
+  });
+
+});
+
+  </script>
 </body>
 </html>
